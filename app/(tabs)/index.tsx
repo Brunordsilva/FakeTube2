@@ -90,7 +90,7 @@ export default function HomeScreen() {
           />
         </Pressable>
         <Text>{likes}</Text>
-        
+
         <Pressable testID='dislike'
           style={styles.button}
           onPress={dislike}
@@ -101,7 +101,7 @@ export default function HomeScreen() {
           />
         </Pressable>
         <Text>{dislikes}</Text>
-        
+
         <Button
           title='detalhes'
           onPress={abrirDetalhes}
