@@ -40,7 +40,7 @@ export default function HomeScreen() {
                 <TextInput testID='pesquisa'
                     style={styles.input}
                     placeholder="Pesquisar"
-                    value={pesquisa}
+                    value={novaPesquisa}
                     onChangeText={setPesquisa}
                 />
                 <Pressable testID='lupa'
