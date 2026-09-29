@@ -1,6 +1,7 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Button, Image, Linking, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import * as Location from 'expo-location';
 
 export default function HomeScreen() {
   const [likes, setLikes] = useState(0);
