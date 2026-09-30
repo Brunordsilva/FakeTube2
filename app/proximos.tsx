@@ -86,6 +86,9 @@ export default function ProximosScreen() {
                     <Text>Latitude: {latitude}</Text>
 
                     <Text>Longitude: {longitude}</Text>
+
+                    <Text>Youtubers proximo a voce</Text>
+
                     <View style={styles.headerRow}>
                         <Pressable testID='souzone'
                             style={styles.canalButton}
@@ -170,8 +173,8 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     imagemCanal: {
-        width: 300,
-        height: 250,
+        width: 'auto',
+        height: 200,
     },
     canalButton: {
         padding: 18,
