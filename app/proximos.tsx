@@ -101,7 +101,7 @@ export default function ProximosScreen() {
                             <Text>Souzones</Text>
                         </Pressable>
 
-                        <Pressable testID='hipe'
+                        <Pressable testID='bitzin'
                             style={styles.canalButton}
                             onPress={gamer}
                         >
@@ -173,8 +173,8 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     imagemCanal: {
-        width: 'auto',
-        height: 200,
+        width: 300,
+        height: 250,
     },
     canalButton: {
         padding: 18,
