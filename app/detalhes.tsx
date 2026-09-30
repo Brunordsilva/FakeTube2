@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Button, Image, Linking, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function HomeScreen() {
+export default function DetalhesScreen() {
     const [pesquisa, setPesquisa] = useState('');
     function Logo() {
         router.back();

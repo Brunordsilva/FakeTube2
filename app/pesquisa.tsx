@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Button, Image, Linking, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function HomeScreen() {
+export default function PesquisaScreen() {
     const { pesquisa } = useLocalSearchParams<{ pesquisa?: string }>();
     const [novaPesquisa, setPesquisa] = useState('');
     function Logo() {

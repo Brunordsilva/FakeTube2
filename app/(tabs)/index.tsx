@@ -37,6 +37,12 @@ export default function HomeScreen() {
     })
   }
 
+  function proximidade() {
+    router.push({
+      pathname: '/proximos',
+    })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerRow}>
@@ -106,6 +112,11 @@ export default function HomeScreen() {
         <Button
           title='detalhes'
           onPress={abrirDetalhes}
+        />
+
+        <Button
+          title='Proximos a voce'
+          onPress={proximidade}
         />
       </View>
     </SafeAreaView>
@@ -181,7 +192,7 @@ const styles = StyleSheet.create({
   },
   canalButton: {
     padding: 18,
-    marginRight: 850,
+    marginRight: '50%',
     borderRadius: 10,
   },
 });
