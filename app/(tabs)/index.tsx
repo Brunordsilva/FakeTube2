@@ -110,7 +110,7 @@ export default function HomeScreen() {
         <Text>{dislikes}</Text>
 
         <Button
-          title='detalhes'
+          title='Endereço'
           onPress={abrirDetalhes}
         />
 
