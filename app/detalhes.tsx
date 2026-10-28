@@ -9,10 +9,6 @@ export default function DetalhesScreen() {
     const [erro, setErro] = useState('');
     const [carregando, setCarregando] = useState(false);
     
-    function Logo() {
-        router.back();
-    }
-
     function pesquisar() {
         setPesquisa(pesquisa);
     }
@@ -58,20 +54,18 @@ export default function DetalhesScreen() {
         <SafeAreaView style={styles.container}>
             <View style={styles.headerRow}>
 
-                <Pressable testID='logo' onPress={Logo}>
-                    
+                <Pressable
+                    testID='logo'
+                    style={styles.headerBrand}
+                    onPress={() => router.replace('/')}
+                    accessibilityRole='button'
+                >
                     <Image testID='logo'
                         style={styles.logo}
                         source={require('../assets/images/FakeTube.png')}
                     />
-
-                </Pressable>
-
-                <View style={styles.headerTextWrap}>
-                    
                     <Text style={styles.title}>FakeTube</Text>
-
-                </View>
+                </Pressable>
 
                 <TextInput testID='pesquisa'
                     style={styles.input}
@@ -152,8 +146,9 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         marginBottom: 4,
     },
-    headerTextWrap: {
-        marginLeft: 12,
+    headerBrand: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     lupa: {
         width: 80,

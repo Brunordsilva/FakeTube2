@@ -7,10 +7,6 @@ export default function ProximosScreen() {
     const [pesquisa, setPesquisa] = useState('');
     const [latitude, setLatitude] = useState<number | null>(null);
     const [longitude, setLongitude] = useState<number | null>(null);
-    function Logo() {
-        router.back();
-    }
-
     function pesquisar() {
         setPesquisa(pesquisa);
     }
@@ -53,15 +49,18 @@ export default function ProximosScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.headerRow}>
-                <Pressable testID='logo' onPress={Logo}>
+                <Pressable
+                    testID='logo'
+                    style={styles.headerBrand}
+                    onPress={() => router.replace('/')}
+                    accessibilityRole='button'
+                >
                     <Image testID='logo'
                         style={styles.logo}
                         source={require('../assets/images/FakeTube.png')}
                     />
-                </Pressable>
-                <View style={styles.headerTextWrap}>
                     <Text style={styles.title}>FakeTube</Text>
-                </View>
+                </Pressable>
                 <TextInput testID='pesquisa'
                     style={styles.input}
                     placeholder="Pesquisar"
@@ -149,8 +148,9 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         marginBottom: 4,
     },
-    headerTextWrap: {
-        marginLeft: 12,
+    headerBrand: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     lupa: {
         width: 80,

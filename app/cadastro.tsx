@@ -1,6 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState,useEffect } from 'react';
-import { TouchableOpacity,FlatList,Alert,Button, Image, Linking, Platform, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useState, useEffect } from 'react';
+import { TouchableOpacity, FlatList, Alert, Button, Image, Linking, Platform, Pressable, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import {
   addDoc,
   collection,
@@ -22,11 +22,11 @@ const mostrarAlerta = (titulo: string, mensagem: string) => {
 };
 
 export default function Cadastro() {
-    const [usuarios, setUsuarios] = useState<any[]>([]);
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [editandoId, setEditandoId] = useState<string | null>(null);
+  const [usuarios, setUsuarios] = useState<any[]>([]);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [editandoId, setEditandoId] = useState<string | null>(null);
 
   const validarCampos = () => {
     if (!nome.trim() || !senha.trim() || !email.trim()) {
@@ -47,13 +47,13 @@ export default function Cadastro() {
     return true;
   };
 
-const iniciarEdicao = (usuario: any) => {
+  const iniciarEdicao = (usuario: any) => {
     setNome(usuario.nome);
     setEmail(usuario.email ?? "");
     setSenha(usuario.senha ?? "");
     setEditandoId(usuario.id);
   };
-const listarUsuarios = async () => {
+  const listarUsuarios = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "usuarios"));
       const lista: any[] = [];
@@ -155,11 +155,14 @@ const listarUsuarios = async () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require("../assets/images/FakeTube.png")}
-        resizeMode="contain"
-      />
+      <Pressable onPress={() => router.replace("/")} accessibilityRole="button">
+        <Image
+          style={styles.logo}
+          source={require("../assets/images/FakeTube.png")}
+          resizeMode="contain"
+        />
+        <Text style={styles.nomeApp}>FakeTube</Text>
+      </Pressable>
       <Text style={styles.titulo}>Crie sua conta</Text>
 
       {/* Formulário */}
@@ -179,7 +182,7 @@ const listarUsuarios = async () => {
         style={styles.input}
         placeholder="Senha"
         value={senha}
-        onChangeText={setSenha}   
+        onChangeText={setSenha}
       />
 
       {editandoId ? (
@@ -246,7 +249,12 @@ const styles = StyleSheet.create({
     width: 110,
     height: 65,
     alignSelf: "center",
-    marginBottom: 4,
+  },
+  nomeApp: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 8,
   },
   titulo: {
     fontSize: 24,
