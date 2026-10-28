@@ -71,6 +71,10 @@ export default function HomeScreen() {
         </Pressable>
 
       </View>
+      <Button
+        title="Ir para cadastro"
+        onPress={() => router.push('/cadastro')}
+      />
       <Image
         style={styles.video}
         source={require('../../assets/images/video.png')}
