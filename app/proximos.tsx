@@ -68,7 +68,7 @@ export default function ProximosScreen() {
                     onChangeText={setPesquisa}
                 />
                 <Pressable testID='lupa'
-                    style={styles.button}
+                    style={styles.searchButton}
                     onPress={barraPesquisa}
                 >
                     <Image
@@ -78,17 +78,17 @@ export default function ProximosScreen() {
                 </Pressable>
             </View>
 
-            <Button title="Usar minha localização" onPress={descobrirLocalizacao} />
+            <Button title="Usar minha localização" onPress={descobrirLocalizacao} color="#e53935" />
 
             {latitude !== null && (
                 <View style={styles.resultado}>
-                    <Text>Latitude: {latitude}</Text>
+                    <Text style={styles.coordinates}>Latitude: {latitude}</Text>
 
-                    <Text>Longitude: {longitude}</Text>
+                    <Text style={styles.coordinates}>Longitude: {longitude}</Text>
 
-                    <Text>Youtubers proximo a voce</Text>
+                    <Text style={styles.sectionTitle}>Youtubers próximo a você</Text>
 
-                    <View style={styles.headerRow}>
+                    <View style={styles.channelsRow}>
                         <Pressable testID='souzone'
                             style={styles.canalButton}
                             onPress={souza}
@@ -97,7 +97,7 @@ export default function ProximosScreen() {
                                 style={styles.imagemCanal}
                                 source={require('../assets/images/souzones.jpg')}
                             />
-                            <Text>Souzones</Text>
+                            <Text style={styles.channelName}>Souzones</Text>
                         </Pressable>
 
                         <Pressable testID='bitzin'
@@ -108,7 +108,7 @@ export default function ProximosScreen() {
                                 style={styles.imagemCanal}
                                 source={require('../assets/images/bit.jpg')}
                             />
-                            <Text>Bitgamer</Text>
+                            <Text style={styles.channelName}>Bitgamer</Text>
                         </Pressable>
 
                         <Pressable testID='hipe'
@@ -119,7 +119,7 @@ export default function ProximosScreen() {
                                 style={styles.imagemCanal}
                                 source={require('../assets/images/euhipe.jpg')}
                             />
-                            <Text>Eu Hipe</Text>
+                            <Text style={styles.channelName}>Eu Hipe</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -132,53 +132,92 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#f6f7f9',
     },
     headerRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        gap: 8,
+        marginBottom: 16,
     },
     logo: {
-        width: 100,
-        height: 90,
+        width: 58,
+        height: 54,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: '700',
-        marginBottom: 4,
+        color: '#202124',
     },
     headerBrand: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     lupa: {
-        width: 80,
-        height: 60,
+        width: 30,
+        height: 30,
     },
     input: {
+        flex: 1,
+        minWidth: 0,
+        height: 44,
         borderWidth: 1,
-        borderColor: '#dad60cfa',
-        borderRadius: 8,
-        padding: 10,
-        marginBottom: 12,
-        width: '80%'
-    },
-    button: {
-        padding: 18,
+        borderColor: '#e0e3e8',
         borderRadius: 10,
+        paddingHorizontal: 12,
+        backgroundColor: '#ffffff',
+        color: '#202124',
+    },
+    searchButton: {
+        width: 42,
+        height: 42,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e0e3e8',
     },
     resultado: {
-        padding: 20,
+        marginTop: 18,
+        padding: 16,
+        gap: 12,
+        borderRadius: 12,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e8eaed',
+    },
+    coordinates: {
+        color: '#616873',
+        fontSize: 14,
+    },
+    sectionTitle: {
+        color: '#202124',
+        fontSize: 18,
+        fontWeight: '700',
+    },
+    channelsRow: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
         gap: 10,
     },
-    imagemCanal: {
-        width: 300,
-        height: 250,
-    },
     canalButton: {
-        padding: 18,
-        marginRight: '10%',
-        borderRadius: 10,
+        flexGrow: 1,
+        flexBasis: 90,
+        alignItems: 'center',
+        gap: 8,
+        padding: 12,
+        borderRadius: 12,
+        backgroundColor: '#f6f7f9',
+    },
+    imagemCanal: {
+        width: 76,
+        height: 76,
+        borderRadius: 38,
+    },
+    channelName: {
+        color: '#303238',
+        fontSize: 14,
+        fontWeight: '600',
     },
 })

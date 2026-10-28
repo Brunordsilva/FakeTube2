@@ -75,7 +75,7 @@ export default function DetalhesScreen() {
                 />
 
                 <Pressable testID='lupa'
-                    style={styles.button}
+                    style={styles.searchButton}
                     onPress={barraPesquisa}
                 >
                     <Image
@@ -86,13 +86,13 @@ export default function DetalhesScreen() {
                 </Pressable>
             </View>
 
-            <View style={styles.container}>
+            <View style={styles.content}>
                 <Text style={styles.title}>📍 Buscar endereço</Text>
 
-                <Text>Digite um CEP para consultar o endereço:</Text>
+                <Text style={styles.instruction}>Digite um CEP para consultar o endereço:</Text>
 
                 <TextInput
-                    style={styles.input}
+                    style={styles.cepInput}
                     placeholder="Ex: 93510000"
                     keyboardType="numeric"
                     value={cep}
@@ -104,6 +104,7 @@ export default function DetalhesScreen() {
                     title={carregando ? "Buscando..." : "Buscar CEP"}
                     onPress={achaEndereço}
                     disabled={carregando}
+                    color="#e53935"
                 />
 
                 {erro !== "" && <Text style={styles.erro}>❌ {erro}</Text>}
@@ -112,11 +113,11 @@ export default function DetalhesScreen() {
                     <View style={styles.resultado}>
                         <Text style={styles.subtitulo}>📌 Endereço encontrado</Text>
 
-                        <Text>CEP: {endereco.cep}</Text>
-                        <Text>Rua: {endereco.logradouro}</Text>
-                        <Text>Bairro: {endereco.bairro}</Text>
-                        <Text>Cidade: {endereco.localidade}</Text>
-                        <Text>Estado: {endereco.uf}</Text>
+                        <Text style={styles.resultadoTexto}>CEP: {endereco.cep}</Text>
+                        <Text style={styles.resultadoTexto}>Rua: {endereco.logradouro}</Text>
+                        <Text style={styles.resultadoTexto}>Bairro: {endereco.bairro}</Text>
+                        <Text style={styles.resultadoTexto}>Cidade: {endereco.localidade}</Text>
+                        <Text style={styles.resultadoTexto}>Estado: {endereco.uf}</Text>
 
                     </View>
                 )}
@@ -130,54 +131,93 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+        backgroundColor: '#f6f7f9',
+    },
+    content: {
+        flex: 1,
+        padding: 18,
+        gap: 12,
+        borderRadius: 12,
         backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e8eaed',
     },
     headerRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        gap: 8,
+        marginBottom: 16,
     },
     logo: {
-        width: 100,
-        height: 90,
+        width: 58,
+        height: 54,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: '700',
-        marginBottom: 4,
+        color: '#202124',
     },
     headerBrand: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     lupa: {
-        width: 80,
-        height: 60,
+        width: 30,
+        height: 30,
     },
     input: {
+        flex: 1,
+        minWidth: 0,
+        height: 44,
         borderWidth: 1,
-        borderColor: '#dad60cfa',
-        borderRadius: 8,
-        padding: 10,
-        marginBottom: 12,
-        width: '80%'
-    },
-    button: {
-        padding: 18,
+        borderColor: '#e0e3e8',
         borderRadius: 10,
+        paddingHorizontal: 12,
+        backgroundColor: '#ffffff',
+        color: '#202124',
+    },
+    cepInput: {
+        height: 44,
+        borderWidth: 1,
+        borderColor: '#e0e3e8',
+        borderRadius: 10,
+        paddingHorizontal: 12,
+        backgroundColor: '#ffffff',
+        color: '#202124',
+    },
+    searchButton: {
+        width: 42,
+        height: 42,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e0e3e8',
     },
     resultado: {
-        padding: 20,
+        padding: 16,
         gap: 8,
-        borderRadius: 10,
+        borderRadius: 12,
+        backgroundColor: '#f6f7f9',
     },
 
     subtitulo: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold",
+        color: '#303238',
+    },
+    instruction: {
+        color: '#616873',
+        fontSize: 15,
+    },
+    resultadoTexto: {
+        color: '#3e434a',
+        fontSize: 15,
     },
 
     erro: {
         fontSize: 16,
+        color: '#c62828',
     },
 })

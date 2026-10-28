@@ -155,7 +155,11 @@ export default function Cadastro() {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => router.replace("/")} accessibilityRole="button">
+      <Pressable
+        style={styles.logoButton}
+        onPress={() => router.replace("/")}
+        accessibilityRole="button"
+      >
         <Image
           style={styles.logo}
           source={require("../assets/images/FakeTube.png")}
@@ -190,15 +194,15 @@ export default function Cadastro() {
           <Button
             title="Atualizar Usuario"
             onPress={atualizarUsuario}
-            color="#007AFF"
+            color="#e53935"
           />
           <View style={{ height: 8 }} />
-          <Button title="Cancelar Edição" onPress={limparCampos} color="#888" />
+          <Button title="Cancelar Edição" onPress={limparCampos} color="#70757d" />
         </View>
       ) : (
-        <Button title="Terminar cadastro" onPress={adicionarUsuario} />
+        <Button title="Terminar cadastro" onPress={adicionarUsuario} color="#e53935" />
       )}
-      <Button title="Voltar para o início" onPress={() => router.replace("/")} />
+      <Button title="Voltar para o início" onPress={() => router.replace("/")} color="#626a73" />
 
       <Text style={styles.subtitulo}>Lista de usuarios</Text>
 
@@ -241,9 +245,16 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    paddingTop: 50,
-    backgroundColor: "#f2f2f2",
+    paddingHorizontal: 20,
+    paddingTop: 28,
+    paddingBottom: 12,
+    backgroundColor: "#f6f7f9",
+  },
+  logoButton: {
+    alignSelf: "center",
+    alignItems: "center",
+    padding: 8,
+    marginBottom: 8,
   },
   logo: {
     width: 110,
@@ -255,40 +266,47 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 8,
+    color: "#25282d",
   },
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 20,
+    color: "#202124",
   },
   input: {
     backgroundColor: "#fff",
     borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
+    borderColor: "#e0e3e8",
+    borderRadius: 10,
     padding: 12,
     marginBottom: 10,
     fontSize: 16,
+    color: "#202124",
   },
   botoesEdicao: {
-    marginBottom: 10,
+    marginBottom: 12,
+    gap: 8,
   },
   subtitulo: {
     fontSize: 18,
     fontWeight: "600",
     marginTop: 25,
     marginBottom: 12,
+    color: "#303238",
   },
   item: {
     backgroundColor: "#fff",
     padding: 14,
-    borderRadius: 10,
+    borderRadius: 12,
     marginBottom: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: "#e8eaed",
+    elevation: 1,
   },
   info: {
     flex: 1,
@@ -296,15 +314,16 @@ const styles = StyleSheet.create({
   nome: {
     fontSize: 16,
     fontWeight: "600",
+    color: "#202124",
   },
   email: {
     fontSize: 14,
-    color: "#666",
+    color: "#68707a",
     marginTop: 2,
   },
   senha: {
     fontSize: 14,
-    color: "#666",
+    color: "#68707a",
     marginTop: 2,
   },
   acoes: {
@@ -317,10 +336,10 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   botaoEditar: {
-    backgroundColor: "#007AFF",
+    backgroundColor: "#e53935",
   },
   botaoExcluir: {
-    backgroundColor: "#FF3B30",
+    backgroundColor: "#70757d",
   },
   textoBotao: {
     color: "#fff",
@@ -330,6 +349,6 @@ const styles = StyleSheet.create({
   vazio: {
     textAlign: "center",
     marginTop: 30,
-    color: "#999",
+    color: "#7a8089",
   },
 });

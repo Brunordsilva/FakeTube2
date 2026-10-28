@@ -78,6 +78,7 @@ export default function HomeScreen() {
           <Button
             title="Ir para cadastro"
             onPress={() => router.push('/cadastro')}
+            color="#e53935"
           />
         </View>
 
@@ -132,8 +133,8 @@ export default function HomeScreen() {
         </View>
 
         <View style={styles.navigationButtons}>
-          <Button title="Endereço" onPress={abrirDetalhes} />
-          <Button title="Próximos a você" onPress={proximidade} />
+          <Button title="Endereço" onPress={abrirDetalhes} color="#e53935" />
+          <Button title="Próximos a você" onPress={proximidade} color="#e53935" />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -143,16 +144,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f6f7f9',
   },
   content: {
     padding: 20,
-    gap: 16,
+    paddingBottom: 32,
+    gap: 18,
   },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   headerBrand: {
     flexDirection: 'row',
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
+    color: '#202124',
   },
   logo: {
     width: 58,
@@ -171,16 +174,22 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0,
     borderWidth: 1,
-    borderColor: '#dad60cfa',
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    height: 42,
+    borderColor: '#e0e3e8',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    height: 44,
+    backgroundColor: '#ffffff',
+    fontSize: 15,
   },
   searchButton: {
     width: 42,
     height: 42,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 12,
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#e0e3e8',
   },
   lupa: {
     width: 34,
@@ -188,18 +197,26 @@ const styles = StyleSheet.create({
   },
   topButton: {
     alignSelf: 'flex-start',
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   video: {
     width: '100%',
     aspectRatio: 16 / 9,
     backgroundColor: '#111111',
+    borderRadius: 12,
   },
   actionsRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    gap: 12,
+    gap: 14,
+    padding: 14,
+    borderRadius: 12,
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#e8eaed',
   },
   channelButton: {
     flexDirection: 'row',
@@ -214,11 +231,12 @@ const styles = StyleSheet.create({
   channelName: {
     fontSize: 15,
     fontWeight: '600',
+    color: '#303238',
   },
   reactions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: 8,
   },
   reactionButton: {
     minWidth: 58,
@@ -228,8 +246,8 @@ const styles = StyleSheet.create({
     gap: 5,
     paddingVertical: 6,
     paddingHorizontal: 8,
-    borderRadius: 8,
-    backgroundColor: '#f0f0f0',
+    borderRadius: 18,
+    backgroundColor: '#f1f2f4',
   },
   reactionImage: {
     width: 26,
@@ -239,6 +257,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    gap: 10,
+    gap: 12,
+    paddingTop: 2,
   },
 });

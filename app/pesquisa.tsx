@@ -37,12 +37,12 @@ export default function PesquisaScreen() {
                 </Pressable>
                 <TextInput testID='pesquisa'
                     style={styles.input}
-                    placeholder="Pesquisar"
+                    placeholder="Pesquisar vídeos"
                     value={novaPesquisa}
                     onChangeText={setPesquisa}
                 />
                 <Pressable testID='lupa'
-                    style={styles.button}
+                    style={styles.searchButton}
                     onPress={barraPesquisa}
                 >
                     <Image
@@ -51,7 +51,7 @@ export default function PesquisaScreen() {
                     />
                 </Pressable>
             </View>
-            <Text>{pesquisa}</Text>
+            <Text style={styles.query}>{pesquisa}</Text>
         </SafeAreaView>
     )
 }
@@ -60,40 +60,57 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#f6f7f9',
     },
     headerRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
+        gap: 8,
+        marginBottom: 18,
     },
     logo: {
-        width: 100,
-        height: 90,
+        width: 58,
+        height: 54,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: '700',
-        marginBottom: 4,
+        color: '#202124',
     },
     headerBrand: {
         flexDirection: 'row',
         alignItems: 'center',
     },
     lupa: {
-        width: 80,
-        height: 60,
+        width: 30,
+        height: 30,
     },
     input: {
+        flex: 1,
+        minWidth: 0,
+        height: 44,
         borderWidth: 1,
-        borderColor: '#dad60cfa',
-        borderRadius: 8,
-        padding: 10,
-        marginBottom: 12,
-        width: '80%'
-    },
-    button: {
-        padding: 18,
+        borderColor: '#e0e3e8',
         borderRadius: 10,
+        paddingHorizontal: 12,
+        backgroundColor: '#ffffff',
+        color: '#202124',
+    },
+    searchButton: {
+        width: 42,
+        height: 42,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#e0e3e8',
+    },
+    query: {
+        padding: 14,
+        borderRadius: 10,
+        backgroundColor: '#ffffff',
+        color: '#303238',
+        fontSize: 16,
     },
 })
